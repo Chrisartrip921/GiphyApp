@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function GifFinder() {
-    return (
-        <div>
-            this is the gifFinder page.
-        </div>
-    )
+export class gifFinder extends Component {
+    render() {
+        return (
+            <div>
+                thiis is the gifFinderPage
+            </div>
+        )
+    }
 }
+
+export default gifFinder
+
+
 

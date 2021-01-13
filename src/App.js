@@ -1,6 +1,6 @@
-import GifFinder from 'GifFinder'
+import GifFinder from './components/GifFInder'
 import './App.css';
- //eZETetqB8EQ0l0Zr2WBvmigHLqypFLif      <--- thats the API key
+ //g25nBHy2WQJRvUjil4QWVNdHBBEfeYEH      <--- thats the API key
 function App() {
   return (
     <div className="App">
