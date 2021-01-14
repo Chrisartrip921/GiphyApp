@@ -6,6 +6,7 @@ const GifFInder = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
+    const [search, setSearch] = useState("");
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -49,11 +50,35 @@ const GifFInder = () => {
             )
         })
     }
-    
+
+    const handleSearchChange = (event) => {
+        setSearch(event.target.value)
+    }
+
+    const handleSubmit = async (event) => {
+        setIsLoading(true); // <--- after form submits, page will be loading 
+        event.preventDefault(); // <--- This is so the page doesn't reload after submitting the form
+        //Dont need fetchData function because we're not in useEffect anymore...
+        const results = await axios("https://api.giphy.com/v1/gifs/search", {
+            params: {
+                api_key: "g25nBHy2WQJRvUjil4QWVNdHBBEfeYEH",
+                q: search
+            }
+        });
+        console.log(results);
+        setData(results.data.data)
+        setIsLoading(false);
+    }
     return <div className="container">
         <form className="my-5">
-            <input type="text" placeholder="Search Here!"/>
-            <button type="submit" className="ml-2">Search!</button>
+            <input
+                value={search}
+                onChange={handleSearchChange}
+                type="text"
+                placeholder="Search Here!"
+            />
+
+            <button onClick={handleSubmit} type="submit" className="ml-2">Search!</button>
         </form>
         {renderGifs()}
     </div>;
