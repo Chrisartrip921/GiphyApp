@@ -1,4 +1,4 @@
-import React from 'react'
+import React from'react'
 import GifFinder from './components/GifFInder'
 import './App.css';
  //http://api.giphy.com/v1/gifs/trending?api_key=g25nBHy2WQJRvUjil4QWVNdHBBEfeYEH      <--- Trending Search
