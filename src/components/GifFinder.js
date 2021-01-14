@@ -13,19 +13,19 @@ const GifFInder = () => {
                 const results = await axios("http://api.giphy.com/v1/gifs/trending", {
                     params: {
                         api_key: "g25nBHy2WQJRvUjil4QWVNdHBBEfeYEH",
-                        
+
                     }
                 });
                 console.log(results)
-                if(results.status !== 200) {
+                if (results.status !== 200) {
                     throw new Error("Error!");
                 }
-                //set the data after we (hopegully) fetch it!
+                //set the data after we (hopefully) fetch it!
                 setData(results.data.data)
                 //Set loading to false because we've already retrieved the data, so we want to stop the loading animation
                 setIsLoading(false);
             } catch (error) {
-                if(isError){
+                if (isError) {
                     setIsError(true);
                     console.log(error);
                 }
@@ -36,19 +36,27 @@ const GifFInder = () => {
 
 
     const renderGifs = () => {
-        if(isLoading) {
+        if (isLoading) {
             return <Loader />
         }
-        return data.map(el => {
+        return data.map(img => {
             return (
-                <div key={el.id}>
-                    <img alt="" src={el.images.original.url} />
+                <div>
+                    <div key={img.id}>
+                        <img className="img" alt="" src={img.images.original.url} />
+                    </div>
                 </div>
             )
         })
     }
-    renderGifs();
-    return <div>{renderGifs()}</div>;
+    
+    return <div className="container">
+        <form className="my-5">
+            <input type="text" placeholder="Search Here!"/>
+            <button type="submit" className="ml-2">Search!</button>
+        </form>
+        {renderGifs()}
+    </div>;
 }
 
 export default GifFInder

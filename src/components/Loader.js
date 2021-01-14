@@ -7,6 +7,6 @@ const Loader = () => {
             <FontAwesomeIcon className="fa-4x fa-spin " icon = {faSpinner}/>
         </div>
     )
-}
+} 
 
 export default Loader;
