@@ -30,7 +30,7 @@ const GifFInder = () => {
             }
         };
         fetchData();
-    }, [], isError);
+    }, [isError]);
 
 
     const renderGifs = () => {
