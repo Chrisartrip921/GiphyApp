@@ -19,6 +19,7 @@ const GifFInder = () => {
                 }
                 //set the data after we (hopefully) fetch it!
                 setData(results.data.data)
+                
                 //Set loading to false because we've already retrieved the data, so we want to stop the loading animation
                 setIsLoading(false);
             } catch (error) {
@@ -68,7 +69,6 @@ const GifFInder = () => {
             setRandom([false]);
         } catch (error) {
             setIsError(true);
-
         }
     }
 
