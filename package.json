@@ -1,7 +1,7 @@
 {
   "name": "giphy-app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://chrisartrip921.github.io/GiphyApp",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
